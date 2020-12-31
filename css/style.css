@@ -80,6 +80,18 @@ header {
     background: #1d5a99; }
     .main-menu ul li a {
       color: white; }
+  .main-menu ul .submenu {
+    position: relative; }
+    .main-menu ul .submenu ul {
+      opacity: 0;
+      display: block;
+      position: absolute;
+      top: 29px;
+      left: -5px;
+      padding: 5px;
+      transition: .3s; }
+  .main-menu ul .submenu:hover ul {
+    opacity: 1; }
 
 /*
 ***************************************
