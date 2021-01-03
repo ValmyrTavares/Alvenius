@@ -340,7 +340,10 @@ footer {
       padding: 10px 44px 5px 44px; }
       header .social-menu .social-media a img {
         width: 34%;
-        min-width: 25px; } }
+        min-width: 25px; }
+  .container {
+    width: 100%;
+    margin: 5px 0; } }
 
 /*
 ***************************************
