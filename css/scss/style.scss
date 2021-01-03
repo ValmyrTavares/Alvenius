@@ -18,7 +18,7 @@ $size-button:16px;
 
 
 .container{
-    background:gray;
+   
     width: 85%;
     margin: 5px auto;
 }
@@ -33,6 +33,7 @@ ul, li, :any-link{
     text-decoration: none;
     padding:0;
     margin:0;
+    font-size:1.5vw
 }
 *{
     font-family: Arial, Helvetica, sans-serif;
@@ -55,22 +56,25 @@ header{
         grid-template-columns: 1fr 1fr;
         .first-menu{
             color:$blue-background;
-            padding: 24px 82px 5px 86px;
+            padding: 24px 11px 5px 19px;
             a {
-                margin: 10px;
+                margin: 5px;
                 padding-right: 20px;
                 border-right: 1px solid;
+                font-size: 1.7vw;
             }
             a:nth-last-child(1){
                 border-right: none;
             }
         }
         .social-media{
-            padding: 50px 154px 5px 150px;
+            padding: 50px 44px 5px 44px;
             display: flex;
             justify-content: space-around;
             a img{
                 width: 58%;
+                min-width:25px
+               
             }
         }
     }
@@ -85,13 +89,34 @@ header{
             width: 65%;
            
         }
-        input{
-            width: 65%;
-            border-radius: 10px;
-            text-align: center;
-            border:none;     
-            font-size: 21px;
+        form{
+            position: relative;
+            display:flex;          
+
+            input{              
+                width: 32vw;              
+                border-radius: 10px;
+                text-align: center;
+                border:none;     
+                font-size: 2vw;
+            }
+            i{
+                color: white;
+                font-size: 1vw;
+                background:$blue-background;
+                cursor:pointer;
+                width:4vw;
+                font-size:2vw;
+                text-align:center;
+                padding:1vw;
+                border-radius:7px;
+                position:absolute;
+                top:0px;
+                left:27vw;
+            }            
         }
+
+      
     }    
 }
 /*
@@ -107,14 +132,91 @@ header{
             flex-grow: 1;
             text-align: center;
             padding: 5px 10px;
-            background:$blue-background;
+            background:$blue-background;            
+            
             a{
                 color:white;
             }
         }
+        .submenu{
+              
+            position: relative;
+            z-index:10;
+            ul{
+                opacity: 0;
+                display: block;
+                position: absolute;
+                top: 29px;
+                left: -5px;
+                padding:5px;            
+                transition: .3s;        
+                }
+
+                
+        }
+        .submenu:hover ul{
+            opacity:1;
+        }               
+
         
     }
 }
+/*
+***************************************
+           CARROSSEL
+****************************************            
+*/
+
+    .slide-img{
+        img{
+            display:none;
+            position: relative;
+            top:3px
+        }
+        .bullets {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 40px);
+            gap: 5px;
+            place-content: center;
+            width: 100%;
+            bottom: 40px;
+            padding: 0;
+            margin-bottom: 40px;
+            list-style: none;
+            top:25px;
+            
+            li {
+                width: 1.5vw;
+                height: 1.5vw;
+                border-radius: 9px;
+                background-color: white;
+                border:solid 1px black;
+                cursor: pointer;
+            }
+        }
+    }
+  
+
+.active{
+    display:block!important;
+    animation: showSlide 1s
+}
+@keyframes showSlide{
+    from{
+        opacity: 0;
+        transform: translate3d(-30px,0,0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
+.change-color{
+    background:$blue-background !important;
+}
+
+
 
 /*
 ***************************************
@@ -127,17 +229,22 @@ header{
         text-align: center;
         h2{
             color:$blue-background;
+            font-size:2.5vw
         }
         p{
             width: 60%;
             margin:10px 15%;
+            font-size:2vw
         }
     }
     figure{
         display:flex;
+        flex-wrap: wrap;
         padding: 20px;
         img{
-            margin:30px
+            width: 30%;
+            min-width: 140px;
+            margin: 1% auto;
         }
     }
 }
@@ -151,23 +258,26 @@ header{
     background:white;
     text-align: left;
     padding: .5rem 3rem;
+    font-size: 1.5vw;
     
     h2{
         color:$blue-background;
-        font-size:$size-h1;
+        font-size:3vw;
         text-align: center;
     }
     article{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        padding:20px;
+       
         img{
             margin: 10px 0px;
         }
         div{
             margin: 2px 21px;
+           
         }
     }
+   
 }
 /*
 ***************************************
@@ -177,23 +287,27 @@ header{
 .content-page3{
     background:white;
     text-align: left;
-    padding: .5rem 3rem;
-    h1{
-        color:$blue-background;
-        font-size:$size-h1;      
-    }
-    h2{
-        font-size:$size-h2;
-    }
+   article{
+       h1{
+           color:$blue-background;
+           font-size:6vw;      
+       }
+       h2{
+        font-size: 4vw; 
+       }
+       p{
+           font-size:1.5vw;
+       }
+
+   }
     div{
         display: flex;
         button{
             flex-grow: 1;
-            margin:5px 5px;
-            padding: 5px 10px;
+           
             background:#828388;
             color:white;
-            font-size:$size-button;
+            font-size:1.5vw;
         }
     }
 }
@@ -209,7 +323,11 @@ header{
     padding: .5rem 3rem;
     h1{
         color:$blue-background;
-        font-size:$size-h1;      
+        font-size:5vw;      
+        margin: 5px;
+    }
+    p{
+        font-size:2vw;      
     }
     h2{
         font-size:$size-h2;
@@ -241,17 +359,20 @@ header{
 .content-page5{
     background:white;
     text-align: left;
-    padding: .5rem 3rem;
+    padding: .5rem 1rem;
     h1{
         color:$blue-background;
-        font-size:$size-h1;      
+        font-size:5vw;      
     }    
+    p{
+        font-size:1.5vw;
+    }
     div{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
         img{
-            min-width: 240px;     
+            min-width: 75pxpx;     
             width: 22%;   
             margin: 5px auto;  
             
@@ -264,53 +385,115 @@ header{
            FOOTER
 ****************************************            
 */
-footer{
-    padding:30px;
-    background:#1d5a99;
-    display: flex;
-    div{
+    footer{
       
-        flex-grow: 1;
-        width: 30%;
-        margin: 80px 30px;
-        border-right:solid white 1px;
-     
-        img{
-            width: 62%;
-        }
-        h1, h2, li, p{
-            color:white;
-        }
-        h1,h2{
-            margin:3px;
-            font-size:25px;
-        }
-        h2{
-            margin: 18px;
-            font-size: 19px;
-        }
-        li{
-            margin:20px;
-            font-size:$font-size-desktop;
-        }
-        article{
-           margin-top:20px;
-            p{
-                font-size:$font-size-desktop;
-                margin:3px;
-            }            
-        }
-        span{
-            display: flex;
+        background:#1d5a99;
+        display: flex;
+        div{
+        
+            flex-grow: 1;
+            width: 30%;
+            margin: 60px 3px;
+            border-right:solid white 1px;
+        
             img{
-                flex-grow: 1;
-                max-width: 40px;
-                margin: 10px
+                width: 62%;
+            }
+            li, p{
+                color:white;
+                font-size:1.5vw
+            }
+            h1,h2{
+                color:white;
+                margin:3px;
+                font-size:2vw;
+                margin: 2px 2px 18px 2px;
+            }         
+            li{
+                margin:20px;
+                font-size:$font-size-desktop;
+                font-size:1.5vw
+            }
+            article{
+            margin-top:20px;
+                p{
+                    font-size:$font-size-desktop;
+                    margin:3px;
+                    font-size:1.5vw
+                }            
+            }
+            span{
+                display: flex;
+                img{
+                    flex-grow: 1;
+                    max-width: 40px;
+                    min-width: 13px;
+                    margin: 4%;
+                }
             }
         }
-    }
-    div:nth-last-child(1){
-        border-right:none;
-    }
+        div:nth-last-child(1){
+            border-right:none;
+        }
 
+    }
+/* ***************************************
+            MOBILE HEADER
+****************************************            
+*/
+@media(max-width:600px){
+    header{
+        .social-menu{         
+          display:flex;
+          flex-direction: column;
+        .first-menu{
+            display: flex;
+            justify-content: space-around;
+            a {
+                font-size: 2vw;
+            }
+        }
+        .social-media{
+            padding: 10px 44px 5px 44px;
+           
+            a img{
+                width: 34%;
+                min-width:25px
+               
+            }
+        }
+        }
+
+    }
 }
+/*
+***************************************
+          MOBILE CONTENT page 2
+****************************************            
+*/
+@media(max-width:900px){
+    .content-page2{
+        padding:0;
+        article{
+            display: flex;
+           flex-direction: column;
+           padding:4px;
+           div{
+               margin:0;
+           }
+        }
+    }
+}
+/*
+***************************************
+           MOBLE FOOTER
+****************************************            
+*/
+@media(max-width:400px){
+    footer{
+        div{
+            margin: 30px 3px;
+        }
+    }
+}
+
